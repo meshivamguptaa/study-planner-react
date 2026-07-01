@@ -10,6 +10,10 @@ function App() {
   const course = "CSE"
   const semester = "5th"
 
+  function buttonClick(){
+    console.log("Button Clicked")
+  }
+
   return (
     <>
       <h1>Study Planner React</h1>
@@ -17,16 +21,24 @@ function App() {
     <p>Name: {name} <br />
     Course: {course} <br />
       Semester: {semester}</p>
-      <Header />
+      <Header title = "Study Planner React"/>
+      <button onClick={buttonClick}>Click me</button>
+      <Footer author = "Created by Shivam" />
       </>
       
   )
 }
 
-function Header(){
+function Header(props){
   return(
-    <p>Study PLanner React</p>
+    <p>{props.title}</p>
   )
+}
+function Footer(props){
+  return(
+    <p>{props.author}</p>
+  )
+  
 }
 
 export default App
