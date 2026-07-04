@@ -1,12 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const name = "Shivam"
+  const [name, setName] = useState("")
+  function handleClick(){
+    setCount(count+2);
+    
+  }
+ function handleInput(event){
+      setName(event.target.value)
+    }
   const course = "CSE"
   const semester = "5th"
 
@@ -22,7 +26,10 @@ function App() {
     Course: {course} <br />
       Semester: {semester}</p>
       <Header title = "Study Planner React"/>
-      <button onClick={buttonClick}>Click me</button>
+      <button onClick={handleClick}>Click me</button>
+      <p>{count}</p>
+      <input value = {name} placeholder='Enter Name' onChange={handleInput}></input>
+      <p>Hello {name}</p>
       <Footer author = "Created by Shivam" />
       </>
       
@@ -32,6 +39,7 @@ function App() {
 function Header(props){
   return(
     <p>{props.title}</p>
+
   )
 }
 function Footer(props){
